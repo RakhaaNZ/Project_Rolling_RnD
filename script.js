@@ -19,7 +19,7 @@ function toggleButton(id){
     _id(`button-wrapper-${id}`).classList.toggle('active')
 }
 
-const todoList = []; // Array of Objects
+const todoList = [];
 let counter = 0;
 
 function addTodo(){
@@ -34,29 +34,20 @@ function addTodo(){
     }
     todoList.push(todoObj);
     counter++;
-    updateGallery(); // Update Gallerynya
-    // console.log(todoList)
+    updateGallery();
 }
 
-// Function untuk mencari todo dengan memfilter arraynya
 function searchTodo(){
     const searchString = inputSearch.value;
-    // Cara 1 menggunakan forEach iteration
     const filteredList = [];
     todoList.forEach((todo) => {
         if(todo.title.toLowerCase().includes(searchString.toLowerCase())){
             filteredList.push(todo);
         }
     });
-    // Cara 2 menggunakan filter iteration
-    // const filteredList = todoList.filter(function(todo){
-    //     return todo.title.toLowerCase().includes(searchString.toLowerCase())
-    // })
     updateGallery(filteredList);
 }
 
-// Function ini mengupdate konten dari gallery berdasarkan isi array todoList
-// parameter list = todoList menandakan bahwa value default dari variabel list adalah todoList apabila tidak ada yang di passing
 function updateGallery(list = todoList){
     todoGallery.innerHTML = ""
     list.forEach(function(todo, index){
@@ -84,7 +75,6 @@ function setChecked(id, checked){
     todoList.forEach(function(todo){
         if(todo.id === id){
             todo.checked = checked;
-            // console.log(todo);
         }
     })
     _id(`title-${id}`).classList.toggle('strikethrough');
@@ -99,7 +89,6 @@ function updateTodo(id){
             todoList.forEach(function(todo){
                 if(todo.id === id){
                     todo.title = titleField.value;
-                    // console.log(todo);
                 }
             })
             titleField.readOnly = true;
@@ -109,9 +98,7 @@ function updateTodo(id){
 }
 
 function removeTodo(id){
-    // find() digunakan untuk mengiterasi array dan mencari elemen pertama yang cocok
     index = todoList.find((todo) => todo.id == id)
     const removed = todoList.splice(index, 1)
     _id(`card-${id}`).remove();
-    // console.log(removed) // untuk debug mana yang dihapus
 }

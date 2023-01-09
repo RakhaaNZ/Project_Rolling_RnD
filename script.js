@@ -55,16 +55,19 @@ function updateGallery(list = todoList){
         todoCard.className = "todo-card"
         todoCard.id = `card-${todo.id}`
         todoCard.innerHTML = `
-            <div class="todo">
+            <div class="todo" id="bg-${todo.id}" readonly>
                 <input type="checkbox" class="todo-checkbox" id="check-${todo.id}" onchange="setChecked(${todo.id}, this.checked)">
                 <input type="text" class="todo-title" id="title-${todo.id}" value="${todo.title}" readonly>
                 <div class="option-btn" onclick="toggleButton(${todo.id})">
-                    <img src="./assets/three-dots-icon.png" alt="Dots">
+                    <i class="fa-solid fa-ellipsis-vertical"></i>
                 </div>
             </div>
             <div class="button-wrapper" id="button-wrapper-${todo.id}">
-                <img src="./assets/edit-icon.png" alt="Edit Icon" onclick="updateTodo(${todo.id})">
-                <img src="./assets/trash-icon.png" alt="Trash Icon"  onclick="removeTodo(${todo.id})">
+                <i class="fa-solid fa-pen" onclick="updateTodo(${todo.id})"></i>
+
+                <i class="fa-solid fa-clone"></i>
+
+                <i class="fa-solid fa-trash" onclick="removeTodo(${todo.id})"></i>
             </div>
         `
         todoGallery.append(todoCard);
@@ -78,6 +81,7 @@ function setChecked(id, checked){
         }
     })
     _id(`title-${id}`).classList.toggle('strikethrough');
+    _id(`bg-${id}`).classList.toggle('strikethrough');
 }
 
 function updateTodo(id){

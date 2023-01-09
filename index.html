@@ -6,28 +6,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Todo List</title>
     <link rel="stylesheet" href="style.css">
+
+    <script src="https://kit.fontawesome.com/812136cf50.js" crossorigin="anonymous"></script>
     <script src="script.js" defer></script>
 </head>
 <body>
     <section id="main-section">
         <div class="container">
             <div class="header">
-                <h1>Todo List</h1>
+                <h1>To Do List</h1>
                 <div class="input-wrapper">
                     <div class="input-group">
-                        <input type="text" id="todo" placeholder="Enter your todo..">
-                        <!-- <button type="button" id="add-btn"><img src="./assets/add-icon.png" alt="Add"></button> -->
+                        <input type="text" id="todo" placeholder="Add your new to do...">
+                        
+                        <button type="button" id="add-btn"><i class="fa-solid fa-plus"></i></button>
+
                     </div>
                     <div class="input-group">
-                        <input type="text" id="search" placeholder="Search todo..">
-                        <!-- <button id="search-btn"><img src="./assets/search-icon.png" alt="Search"></button> -->
+                        <input type="text" id="search" placeholder="Search to do...">
+                        <button id="search-btn"><i class="fa-solid fa-magnifying-glass"></i></button>
                     </div>
                 </div>
             </div>
-            <div id="todo-gallery">
-                <!-- Our code starts here.. -->
+            <div id="todo-gallery"></div>
             </div>
         </div>
     </section>
 </body>
 </html>
+

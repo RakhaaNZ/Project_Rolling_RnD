@@ -65,7 +65,7 @@ function updateGallery(list = todoList){
             <div class="button-wrapper" id="button-wrapper-${todo.id}">
                 <i class="fa-solid fa-pen" onclick="updateTodo(${todo.id})"></i>
 
-                <i class="fa-solid fa-clone"></i>
+                <i class="fa-solid fa-clone" onclick="dupTodo()"></i>
 
                 <i class="fa-solid fa-trash" onclick="removeTodo(${todo.id})"></i>
             </div>
@@ -105,4 +105,20 @@ function removeTodo(id){
     index = todoList.find((todo) => todo.id == id)
     const removed = todoList.splice(index, 1)
     _id(`card-${id}`).remove();
+}
+
+const cloneTodo = _class('todo-title');
+function dupTodo(){
+
+    const cloneX = cloneTodo.value;
+
+    const todoObj = {
+        'id' : counter,
+        'title': cloneX,
+        'checked' : false
+    }
+
+    const node = addTodo();
+    const clone = node.cloneNode(true);
+    todoGallery.appendChild(dupTodo());
 }
